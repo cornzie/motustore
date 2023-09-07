@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+class Order extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'customer_id',
+        'shipping_due_date',
+        'shipping_address',
+        'delivery_method',
+    ];
+
+
+    /**
+     * One order has many products
+     *
+     * @return HasMany
+     */
+    public function products() :  BelongsToMany
+    {
+        return $this->belongsToMany(Product::class);
+    }
+}
