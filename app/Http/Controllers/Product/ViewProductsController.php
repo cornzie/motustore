@@ -13,6 +13,6 @@ class ViewProductsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('products.index', ['products' => Product::paginate(100)]);
+        return view('products.index', ['products' => Product::published()->paginate(100)]);
     }
 }
