@@ -22,9 +22,9 @@ class OrderFactory extends Factory
 
         return [
             'customer_id' => $customer->id,
-            'shipping_due_date' => $this->date('Y_m_d'),
+            'shipping_due_date' => $this->faker->date('Y_m_d'),
             'shipping_address' => $this->faker->address(),
-            'delivery_method' => $deliver_methods[array_rand($$deliver_methods)],
+            'delivery_method' => $deliver_methods[array_rand($deliver_methods)],
         ];
     }
 }

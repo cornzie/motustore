@@ -19,19 +19,23 @@ class RoleAndPermissionSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissions = [
+            'create-product',
+            'delete-product',
+            'edit-product',
             'view-products',
             'view-product-detail',
+            
+            'create-customer',
+            'delete-customer',
+            'edit-customer',
             'view-customers',
             'view-customer-detail',
+
+            'create-order',
+            'delete-order',
+            'edit-order',
             'view-orders',
             'view-order-detail',
-            'create-order',
-            'edit-order',
-            'edit-product',
-            'edit-customer',
-            'delete-order',
-            'delete-product',
-            'delete-customer',
         ];
 
         $roles = [
