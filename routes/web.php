@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Order\ViewOrdersController;
+use App\Http\Controllers\Order\ManageOrdersController;
 use App\Http\Controllers\Product\ViewProductsController;
+use App\Http\Controllers\Order\ViewOrderDetailController;
 use App\Http\Controllers\Customer\ViewCustomersController;
 use App\Http\Controllers\Product\ManageProductsController;
 use App\Http\Controllers\Customer\ManageCustomersController;
@@ -50,6 +53,18 @@ Route::middleware('auth')->group(function () {
 
     Route::get('view/customers', ViewCustomersController::class)->middleware(['permission:view-customers'])->name('customers.index');
     Route::get('view/customers/{customer}', ViewCustomerDetailController::class)->middleware(['permission:view-customer-detail'])->name('customers.show');
+
+    /* Manage order routes */
+    Route::resource('orders', ManageOrdersController::class)->only([
+        'create', 'store'
+    ])->middleware(['permission:create-order']);
+
+    Route::resource('orders', ManageOrdersController::class)->only([
+        'edit', 'update', 'destroy'
+    ])->middleware(['permission:delete-order|edit-order']);
+
+    Route::get('view/orders', ViewOrdersController::class)->middleware(['permission:view-orders'])->name('orders.index');
+    Route::get('view/orders/{order}', ViewOrderDetailController::class)->middleware(['permission:view-order-detail'])->name('orders.show');
 });
 
 require __DIR__.'/auth.php';

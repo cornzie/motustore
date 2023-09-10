@@ -1,6 +1,6 @@
 <?php
 
-namespace App\actions\Contracts;
+namespace App\Actions\Contracts;
 
 interface Actions {
     public function __invoke(array $data);

@@ -20,10 +20,10 @@
                         <a href="{{ route('customers.index') }}"><x-primary-button>All customers</x-primary-button></a>
                     @endcan
                     @can('create-order')
-                        <a href=""><x-primary-button>Create an order</x-primary-button></a>
+                        <a href="{{ route('orders.create') }}"><x-primary-button>Create an order</x-primary-button></a>
                     @endcan
                     @can('view-orders')
-                        <a href=""><x-primary-button>All orders</x-primary-button></a>
+                        <a href="{{ route('orders.index') }}"><x-primary-button>All orders</x-primary-button></a>
                     @endcan
                 </div>
             </div>
