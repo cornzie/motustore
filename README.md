@@ -1,6 +1,6 @@
 # Motustore
 
-A sample admin panel for managing customer, orders and products information.
+A sample admin panel for managing customers, orders and products information.
 
 ## Running the App
 
