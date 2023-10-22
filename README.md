@@ -8,19 +8,19 @@ Ensure you have docker & docker-compose installed and running and then follow th
 
 ```
 git clone https://github.com/cornzie/motustore.git
-cd motustore # your project folder
-docker-compose up
 
-# once the containers are started
-docker ps
-# copy the CONTAINER ID for motustore_motustore image from the result of running the above command
 
-docker exec -it <CONTAINER ID> /bin/sh
+# your project folder
+cd motustore 
 
-php artisan db:migrate --seed
+# create a .env file
+cp .env.example .env
+# ensure to fill the DB_* values in the .env file
+
+docker-compose up -d
 ```
 Visit the website at http://localhost:8000/
 
-The seeder would create two accounts with roles `manager` and `loggedUser`
+The seeder ran while building the app would create two accounts with roles `manager` and `loggedUser`
 - Manager account credentials: manager@example.com, password
 - Logged User account credentials: user@example.com, password
