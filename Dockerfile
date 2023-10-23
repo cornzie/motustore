@@ -9,6 +9,10 @@ RUN pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis
 
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash
+RUN apt install nodejs -y
+            
+
 WORKDIR /var/www
 COPY . .
 
@@ -16,9 +20,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 ENV PORT=8000
 
-ENTRYPOINT [ "sh", "docker/entrypoint.sh" ]
+RUN chmod +x entrypoint.sh
 
-# **************************************************************************
+ENTRYPOINT [ "bash", "entrypoint.sh" ]
+
+# *************************************************************************************
 # Node
 
 FROM node:latest as node
@@ -28,5 +34,6 @@ COPY . .
 
 RUN npm install --global cross-env
 RUN npm install
+RUN npm run build
 
 VOLUME /var/www/node_modules

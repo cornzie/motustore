@@ -15,9 +15,11 @@ cd motustore
 
 # create a .env file
 cp .env.example .env
-# ensure to fill the DB_* values in the .env file
 
-docker-compose up -d
+# ensure to fill the DB_* values in the .env file
+# If skipped, would use the defaults in .env.example
+
+docker-compose up
 ```
 Visit the website at http://localhost:8000/
 
