@@ -5,7 +5,7 @@ namespace App\Actions;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use App\Services\CurrencyService;
-use App\actions\Contracts\Actions;
+use App\Actions\Contracts\Actions;
 
 class CreateProduct implements Actions
 {

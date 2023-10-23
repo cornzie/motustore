@@ -4,7 +4,7 @@ namespace App\Actions;
 
 use App\Models\Product;
 use App\Services\CurrencyService;
-use App\actions\Contracts\Actions;
+use App\Actions\Contracts\Actions;
 use Illuminate\Support\Facades\Log;
 
 class UpdateProduct implements Actions
