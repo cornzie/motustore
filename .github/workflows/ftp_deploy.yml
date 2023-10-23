@@ -76,4 +76,4 @@ jobs:
         username: ${{ secrets.udehng_ftp_username }}
         password: ${{ secrets.udehng_ftp_password }}
         server-dir: motutore.udeh.ng/
-    # needs: tests
+    needs: tests

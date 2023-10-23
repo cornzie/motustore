@@ -17,7 +17,7 @@ cd motustore
 cp .env.example .env
 
 # ensure to fill the DB_* values in the .env file
-# If skipped, would use the defaults in .env.example
+# This is used to create the databse
 
 docker-compose up
 ```
