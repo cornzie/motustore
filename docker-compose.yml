@@ -25,8 +25,8 @@ services:
     ports:
       - 3307:3307
     environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
       - MYSQL_DATABASE=${DB_DATABASE}
-      - MYSQL_PASSWORD=${DB_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_TCP_PORT=3307
     volumes:
